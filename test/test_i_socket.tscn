@@ -2,18 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bfnqync201j38" path="res://addons/inventoria/scripts/socket/socket.gd" id="1_tqjod"]
 
-[node name="ISocket" type="Control"]
+[node name="ISocket" type="Panel"]
 custom_minimum_size = Vector2(20, 20)
-layout_mode = 3
-anchors_preset = 0
+offset_right = 20.0
+offset_bottom = 20.0
 script = ExtResource("1_tqjod")
-metadata/_custom_type_script = "uid://bfnqync201j38"
-
-[node name="Panel" type="Panel" parent="."]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2

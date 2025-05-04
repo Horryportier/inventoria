@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgvhir4uktja8"]
+
+[ext_resource type="Script" uid="uid://wes25qht6klm" path="res://tooltip.gd" id="1_7xftr"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7xftr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 2

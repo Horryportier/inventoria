@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8vj58yt0xh2m"]
+[gd_scene load_steps=12 format=3 uid="uid://b8vj58yt0xh2m"]
 
 [ext_resource type="Script" uid="uid://gggklmu0oxvx" path="res://addons/inventoria/scripts/inventory/inventory.gd" id="1_m5cd5"]
 [ext_resource type="Script" uid="uid://bseldtviimcmo" path="res://test/test_item_type.gd" id="2_lr5j1"]
@@ -7,10 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://cog0b6bgokbxr" path="res://test/test_i_socket.tscn" id="4_gaudv"]
 [ext_resource type="Resource" uid="uid://cxakjb2q8apcw" path="res://test/test_i_item_sword.tres" id="4_xdggk"]
 [ext_resource type="Resource" uid="uid://d2tmn08bqn72d" path="res://test/test_i_item_potion.tres" id="5_mwmxg"]
+[ext_resource type="Resource" uid="uid://btsup46hp2qlo" path="res://test/test_i_item_armor.tres" id="8_fkvod"]
 
 [sub_resource type="Resource" id="Resource_lr5j1"]
 script = ExtResource("2_lr5j1")
-type = 1
+type = 7
+metadata/_custom_type_script = "uid://bseldtviimcmo"
+
+[sub_resource type="Resource" id="Resource_mwmxg"]
+script = ExtResource("2_lr5j1")
+type = 6
+metadata/_custom_type_script = "uid://bseldtviimcmo"
+
+[sub_resource type="Resource" id="Resource_i3afb"]
+script = ExtResource("2_lr5j1")
+type = 4
 metadata/_custom_type_script = "uid://bseldtviimcmo"
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -24,10 +35,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 
-[node name="IInventory" type="GridContainer" parent="Control" node_paths=PackedStringArray("sockets")]
-layout_mode = 1
+[node name="VSplitContainer" type="VFlowContainer" parent="Control"]
+layout_mode = 0
 offset_right = 116.0
-offset_bottom = 68.0
+offset_bottom = 76.0
+
+[node name="IInventory" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
+layout_mode = 2
 columns = 5
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_lr5j1")
@@ -36,4 +50,29 @@ sockets = [null, null, null, null, null, null, null, null, null, null]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
 sockets_count = 10
+metadata/_custom_type_script = "uid://gggklmu0oxvx"
+
+[node name="IInventory2" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
+modulate = Color(0.8499, 0, 0.295227, 1)
+layout_mode = 2
+columns = 5
+script = ExtResource("1_m5cd5")
+allowed_types = SubResource("Resource_mwmxg")
+items = Array[ExtResource("3_hldr7")]([null, null, null, null, null])
+sockets = [NodePath("ISocket"), null, null, null, null]
+items_visual_scene = ExtResource("3_56kpk")
+items_socket_scene = ExtResource("4_gaudv")
+sockets_count = 5
+metadata/_custom_type_script = "uid://gggklmu0oxvx"
+
+[node name="IInventory3" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
+modulate = Color(0.328519, 0.671535, 0, 1)
+layout_mode = 2
+script = ExtResource("1_m5cd5")
+allowed_types = SubResource("Resource_i3afb")
+items = Array[ExtResource("3_hldr7")]([ExtResource("8_fkvod"), null, null])
+sockets = [NodePath("ISocket"), NodePath("@Panel@93566"), NodePath("@Panel@93567")]
+items_visual_scene = ExtResource("3_56kpk")
+items_socket_scene = ExtResource("4_gaudv")
+sockets_count = 3
 metadata/_custom_type_script = "uid://gggklmu0oxvx"

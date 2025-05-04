@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="IItem" load_steps=5 format=3 uid="uid://d2tmn08bqn72d"]
+
+[ext_resource type="Texture2D" uid="uid://7lr8ldcmqn8y" path="res://assets/icons/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/potion_03a.png" id="1_852b5"]
+[ext_resource type="Script" uid="uid://60rrbujdqlij" path="res://addons/inventoria/scripts/item/item.gd" id="2_t7qe7"]
+[ext_resource type="Script" uid="uid://bseldtviimcmo" path="res://test/test_item_type.gd" id="3_auuyo"]
+
+[sub_resource type="Resource" id="Resource_5iyxg"]
+script = ExtResource("3_auuyo")
+type = 2
+metadata/_custom_type_script = "uid://bseldtviimcmo"
+
+[resource]
+script = ExtResource("2_t7qe7")
+id = "heal_potion"
+type = SubResource("Resource_5iyxg")
+name = "Heal Potion"
+description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,"
+icon = ExtResource("1_852b5")
+metadata/_custom_type_script = "uid://60rrbujdqlij"

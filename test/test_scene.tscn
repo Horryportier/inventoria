@@ -1,13 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://b8vj58yt0xh2m"]
+[gd_scene load_steps=15 format=3 uid="uid://b8vj58yt0xh2m"]
 
+[ext_resource type="Script" uid="uid://bxl8cxwwjo4hb" path="res://test/test_scene.gd" id="1_lke18"]
 [ext_resource type="Script" uid="uid://gggklmu0oxvx" path="res://addons/inventoria/scripts/inventory/inventory.gd" id="1_m5cd5"]
 [ext_resource type="Script" uid="uid://bseldtviimcmo" path="res://test/test_item_type.gd" id="2_lr5j1"]
 [ext_resource type="PackedScene" uid="uid://cum55moe12rl1" path="res://test/test_i_item_visual.tscn" id="3_56kpk"]
 [ext_resource type="Script" uid="uid://60rrbujdqlij" path="res://addons/inventoria/scripts/item/item.gd" id="3_hldr7"]
 [ext_resource type="PackedScene" uid="uid://cog0b6bgokbxr" path="res://test/test_i_socket.tscn" id="4_gaudv"]
-[ext_resource type="Resource" uid="uid://cxakjb2q8apcw" path="res://test/test_i_item_sword.tres" id="4_xdggk"]
-[ext_resource type="Resource" uid="uid://d2tmn08bqn72d" path="res://test/test_i_item_potion.tres" id="5_mwmxg"]
-[ext_resource type="Resource" uid="uid://btsup46hp2qlo" path="res://test/test_i_item_armor.tres" id="8_fkvod"]
+[ext_resource type="Resource" uid="uid://cxakjb2q8apcw" path="res://test/items/test_i_item_sword.tres" id="4_xdggk"]
+[ext_resource type="Resource" uid="uid://d2tmn08bqn72d" path="res://test/items/test_i_item_potion.tres" id="5_mwmxg"]
+[ext_resource type="Resource" uid="uid://btsup46hp2qlo" path="res://test/items/test_i_item_armor.tres" id="8_fkvod"]
+[ext_resource type="Texture2D" uid="uid://b45q1xyol0rmv" path="res://assets/icons/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/shard_01j.png" id="9_k8f1l"]
+[ext_resource type="Texture2D" uid="uid://chj0nam0evg6i" path="res://assets/icons/Kyrise's 16x16 RPG Icon Pack - V1.3/icons/16x16/gem_01d.png" id="10_lke18"]
 
 [sub_resource type="Resource" id="Resource_lr5j1"]
 script = ExtResource("2_lr5j1")
@@ -24,7 +27,11 @@ script = ExtResource("2_lr5j1")
 type = 4
 metadata/_custom_type_script = "uid://bseldtviimcmo"
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("add_button", "remove_button", "inventory")]
+script = ExtResource("1_lke18")
+add_button = NodePath("Control/HFlowContainer/Add")
+remove_button = NodePath("Control/HFlowContainer/Remove")
+inventory = NodePath("Control/VSplitContainer/IInventory")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -33,7 +40,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
 
 [node name="VSplitContainer" type="VFlowContainer" parent="Control"]
 layout_mode = 0
@@ -71,8 +77,30 @@ layout_mode = 2
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_i3afb")
 items = Array[ExtResource("3_hldr7")]([ExtResource("8_fkvod"), null, null])
-sockets = [NodePath("ISocket"), NodePath("@Panel@93566"), NodePath("@Panel@93567")]
+sockets = [NodePath("ISocket"), null, null]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
 sockets_count = 3
 metadata/_custom_type_script = "uid://gggklmu0oxvx"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_bottom = 66.0
+grow_horizontal = 0
+alignment = 2
+last_wrap_alignment = 2
+
+[node name="Add" type="Button" parent="Control/HFlowContainer"]
+layout_mode = 2
+text = "Add Random Item"
+icon = ExtResource("9_k8f1l")
+
+[node name="Remove" type="Button" parent="Control/HFlowContainer"]
+layout_mode = 2
+text = "Remove Random Item
+"
+icon = ExtResource("10_lke18")

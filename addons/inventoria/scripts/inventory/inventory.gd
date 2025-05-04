@@ -73,7 +73,6 @@ func remove_item(idx: int) -> IItem:
 	return i
 
 func move_item(from, to, from_inv, to_inv: int) -> void:
-	print(from, " ", to , " ", from_inv, " ", to_inv)
 	if !_validate_move_index(from, to, from_inv, to_inv):
 		printerr("wrong move item values from: %s to: %s with inventory from_inv:  %s to_inv: %s" % [from, to, from_inv, to_inv])
 	var from_inventory: = get_invetory_by_id(from_inv)
@@ -85,14 +84,7 @@ func move_item(from, to, from_inv, to_inv: int) -> void:
 	to_inventory.add_visuals(to, to_inventory.items[to])
 	from_inventory.items[from] = null
 	from_inventory.remove_visuals(from)
-	print(from_inventory.items, to_inventory.items)
 
-
-func _set_current_item_index(item: IItemVisual, idx, inv_id : int) -> void:
-	print(inv_id)
-	item._current_ivnventory = inv_id
-	print(item._current_ivnventory)
-	item._current_index = idx
 
 func _validate_move_index(from, to, from_inv, to_inv: int) -> bool:
 	var from_items = get_invetory_by_id(from_inv).items

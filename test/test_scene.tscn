@@ -46,38 +46,36 @@ layout_mode = 0
 offset_right = 116.0
 offset_bottom = 76.0
 
-[node name="IInventory" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
+[node name="IInventory" type="GridContainer" parent="Control/VSplitContainer"]
 layout_mode = 2
 columns = 5
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_lr5j1")
 items = Array[ExtResource("3_hldr7")]([ExtResource("4_xdggk"), ExtResource("5_mwmxg"), null, null, null, null, null, null, null, null])
-sockets = [null, null, null, null, null, null, null, null, null, null]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
+can_select = true
 sockets_count = 10
 metadata/_custom_type_script = "uid://gggklmu0oxvx"
 
-[node name="IInventory2" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
+[node name="IInventory2" type="GridContainer" parent="Control/VSplitContainer"]
 modulate = Color(0.8499, 0, 0.295227, 1)
 layout_mode = 2
 columns = 5
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_mwmxg")
 items = Array[ExtResource("3_hldr7")]([null, null, null, null, null])
-sockets = [NodePath("ISocket"), null, null, null, null]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
 sockets_count = 5
 metadata/_custom_type_script = "uid://gggklmu0oxvx"
 
-[node name="IInventory3" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
+[node name="IInventory3" type="GridContainer" parent="Control/VSplitContainer"]
 modulate = Color(0.328519, 0.671535, 0, 1)
 layout_mode = 2
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_i3afb")
 items = Array[ExtResource("3_hldr7")]([ExtResource("8_fkvod"), null, null])
-sockets = [NodePath("ISocket"), null, null]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
 sockets_count = 3

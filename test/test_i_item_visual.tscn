@@ -10,6 +10,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ejjs5")
 custom_tooltip_scene = ExtResource("2_ls8ph")
+select_action = "select"
 metadata/_custom_type_script = "uid://f8tydskgty2r"
 
 [node name="TextureRect" type="TextureRect" parent="."]

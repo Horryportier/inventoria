@@ -2,6 +2,8 @@
 class_name IItemVisual
 extends Control
 
+signal selected(idx: int)
+
 @onready var texture_rect: TextureRect = $TextureRect
 
 @export var item: IItem
@@ -12,14 +14,25 @@ extends Control
 ## custom_tooltip_scene has to be control type and have [color=red]setup(for_text: String, item: IItem)[/color] function
 @export var custom_tooltip_scene: PackedScene
 
+@export_group("select action")
+@export var select_action: String
 @export_group("indexing")
 ## Do not touch it its set internally 
 @export var _current_index: int
 ## Do not touch it its set internally 
 @export var _current_ivnventory: int
 
+var mouse_hover: bool
+
 func _ready() -> void:
 	texture_rect.texture = item.icon
+	mouse_entered.connect(func () -> void:  mouse_hover = true)
+	mouse_exited.connect(func () -> void:  mouse_hover = false)
+
+
+func _process(_delta: float) -> void:
+	if mouse_hover and Input.is_action_just_pressed(select_action):
+		selected.emit(get_parent().get_index())
 
 func _get_drag_data(at_position: Vector2) -> Variant:
 	if use_custom_drag_scene:

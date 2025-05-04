@@ -3,13 +3,35 @@
 class_name IInventory
 extends GridContainer
 
+signal on_selected(idx: int)
 signal sockets_updated
 
+@export_group("type")
 @export var allowed_types: ItemType
+@export_group("nodes")
 @export var items:  Array[IItem]
 @export var sockets:  Array[ISocket]
+@export_group("packed scenes")
 @export var items_visual_scene: PackedScene
 @export var items_socket_scene: PackedScene
+@export_group("select")
+@export var can_select: bool 
+## setting  to -1 will unselect all
+@export var selected: int = -1:
+	set(val):
+		if !can_select:
+			return
+		deselect(selected)
+		if selected == val:
+			selected = -1
+			on_selected.emit(-1)
+		else:
+			selected = val
+			select(val)
+			on_selected.emit(selected)
+	
+
+@export_group("sockets")
 @export var sockets_count: int: 
 	set(val):
 		sockets_count = val
@@ -21,7 +43,6 @@ var id: int
 static var next_id: int
 
 static var inventories_node_paths: Dictionary[int, NodePath]
-
 
 func _ready() -> void:
 	_set_id()
@@ -51,16 +72,21 @@ func add_item(item: IItem) -> bool:
 			return true
 	return false
 
-
 func add_visuals(idx: int,item: IItem) -> void:
 	var item_visual: IItemVisual = items_visual_scene.instantiate()
 	item_visual.item = item
 	sockets[idx].add_child(item_visual)
 	item_visual._current_ivnventory = id
 	item_visual._current_index = idx
+	item_visual.selected.connect(_on_item_visual_selected)
+
+func _on_item_visual_selected(idx: int) -> void:
+	selected = idx
+
 
 func remove_visuals(idx: int) -> void:
 	var c = sockets[idx].get_child(0)
+	deselect(idx)
 	if is_instance_valid(c):
 		c.queue_free()
 
@@ -103,3 +129,12 @@ func _update_sockets() -> void:
 		var socket = items_socket_scene.instantiate()
 		add_child(socket)
 		sockets.append(socket)
+
+func select(idx: int) -> void:
+	sockets[idx]._selected()
+
+func deselect(idx: int) -> void:
+	sockets[idx]._deselected()
+
+func is_selected(idx: int) -> bool:
+	return sockets[idx].selected

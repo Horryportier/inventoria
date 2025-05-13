@@ -52,12 +52,11 @@ columns = 5
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_lr5j1")
 items = Array[ExtResource("3_hldr7")]([ExtResource("4_xdggk"), ExtResource("5_mwmxg"), null, null, null, null, null, null, null, null])
-sockets = [NodePath("ISocket"), NodePath("@Panel@21762"), NodePath("@Panel@21763"), NodePath("@Panel@21764"), NodePath("@Panel@21765"), NodePath("@Panel@21766"), NodePath("@Panel@21767"), NodePath("@Panel@21768"), NodePath("@Panel@21769"), NodePath("@Panel@21770")]
+sockets = [NodePath("ISocket"), NodePath("@Panel@27618"), NodePath("@Panel@27619"), NodePath("@Panel@27620"), NodePath("@Panel@27621"), NodePath("@Panel@27622"), NodePath("@Panel@27623"), NodePath("@Panel@27624"), NodePath("@Panel@27625"), NodePath("@Panel@27626")]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
 can_select = true
 sockets_count = 10
-locked = null
 metadata/_custom_type_script = "uid://gggklmu0oxvx"
 
 [node name="IInventory2" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
@@ -67,11 +66,10 @@ columns = 5
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_mwmxg")
 items = Array[ExtResource("3_hldr7")]([null, null, null, null, null])
-sockets = [NodePath("ISocket"), NodePath("@Panel@21771"), NodePath("@Panel@21772"), NodePath("@Panel@21773"), NodePath("@Panel@21774")]
+sockets = [NodePath("ISocket"), NodePath("@Panel@28163"), NodePath("@Panel@28164"), NodePath("@Panel@28165"), NodePath("@Panel@28166")]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
 sockets_count = 5
-locked = null
 metadata/_custom_type_script = "uid://gggklmu0oxvx"
 
 [node name="IInventory3" type="GridContainer" parent="Control/VSplitContainer" node_paths=PackedStringArray("sockets")]
@@ -80,11 +78,10 @@ layout_mode = 2
 script = ExtResource("1_m5cd5")
 allowed_types = SubResource("Resource_i3afb")
 items = Array[ExtResource("3_hldr7")]([ExtResource("8_fkvod"), null, null])
-sockets = [NodePath("ISocket"), NodePath("@Panel@21775"), NodePath("@Panel@21776")]
+sockets = [NodePath("ISocket"), NodePath("@Panel@28865"), NodePath("@Panel@28866")]
 items_visual_scene = ExtResource("3_56kpk")
 items_socket_scene = ExtResource("4_gaudv")
 sockets_count = 3
-locked = null
 metadata/_custom_type_script = "uid://gggklmu0oxvx"
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Control"]

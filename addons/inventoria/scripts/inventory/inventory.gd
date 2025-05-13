@@ -35,8 +35,9 @@ signal items_changed
 
 @export_group("sockets")
 @export var sockets_count: int
+@export_tool_button("Spawn Sockets", "Callable") var spawn_sockets: Callable = _update_sockets
 
-@export  var locked: bool
+var locked: bool
 
 var id: int
 static var next_id: int
